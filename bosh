@@ -1,106 +1,58 @@
+<!DOCTYPE html>
+<html lang="tr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sayfa Başlığı</title>
-  <!-- Google Fonts (opsiyonel) -->
+  <title>TRBC Pro Public (CSD)</title>
+  <!-- Ortak stil -->
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: url('background.jpg') no-repeat center center fixed;
-      background-size: cover;
-      font-family: 'Roboto', sans-serif;
-    }
-    .overlay {
-      background: rgba(0, 0, 0, 0.6);
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-    .container {
-      max-width: 600px;
-      width: 100%;
-      background: rgba(255, 255, 255, 0.95);
-      color: #333;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-      padding: 20px 30px;
-    }
-    h1 {
-      font-size: 1.8rem;
-      margin: 0 0 10px 0;
-      text-align: center;
-      font-weight: 500;
-    }
-    h2 {
-      font-size: 1.4rem;
-      margin: 20px 0 10px 0;
-      border-bottom: 2px solid #ccc;
-      padding-bottom: 5px;
-      font-weight: 500;
-    }
-    h3 {
-      font-size: 1.2rem;
-      margin: 15px 0 8px 0;
-      font-weight: 500;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    li {
-      margin: 8px 0;
-      display: flex;
-      align-items: center;
-    }
-    .badge {
-      display: inline-block;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      margin-right: 10px;
-      flex-shrink: 0;
-    }
-    .badge-red {
-      background-color: #e74c3c;
-    }
-    .badge-orange {
-      background-color: #e67e22;
-    }
-    .badge-blue {
-      background-color: #3498db;
-    }
-    /* İleride başka renk eklemek istersen: 
-       .badge-green { background-color: #27ae60; }
-       .badge-purple { background-color: #9b59b6; } vb. */
-    a {
-      color: #0066cc;
-      text-decoration: none;
-      font-weight: 500;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    @media (max-width: 500px) {
-      .container {
-        padding: 15px 20px;
-      }
-      h1 {
-        font-size: 1.5rem;
-      }
-      h2 {
-        font-size: 1.2rem;
-      }
-      h3 {
-        font-size: 1.1rem;
-      }
-      li {
-        font-size: 0.95rem;
-      }
-    }
+    /* ... aynı CSS kodu buraya yapıştır ... */
   </style>
 </head>
+<body>
+  <div class="overlay">
+    <div class="container">
+      <!-- Başlık -->
+      <h1>TRBC Pro Public (CSD)</h1>
+
+      <!-- Sunucu bilgileri listesi -->
+      <ul>
+        <li>
+          <strong>Sunucu IP:</strong>
+          <!-- steam://connect yönlendirmesi -->
+          <a href="steam://connect/213.238.173.3:27015">213.238.173.3:27015</a>
+        </li>
+        <li>
+          <strong>Teamspeak 3:</strong>
+          <!-- TS3 protokolü: ts3server://IP:PORT -->
+          <a href="ts3server://(ts3_ip_adresi):9987">ts3.example.com:9987</a>
+          <!-- Örnek: <a href="ts3server://213.238.173.3:9987">213.238.173.3:9987</a> -->
+        </li>
+        <li>
+          <strong>Discord Sunucusu:</strong>
+          <!-- Discord davet linki -->
+          <a href="https://discord.gg/discord_davet_kodu" target="_blank" rel="noopener">discord.gg/örnek</a>
+        </li>
+        <li>
+          <strong>Websitesi:</strong>
+          <a href="https://www.trbc-example.com" target="_blank" rel="noopener">trbc-example.com</a>
+        </li>
+        <li>
+          <strong>Instagram:</strong>
+          <a href="https://instagram.com/ornekhesap" target="_blank" rel="noopener">@ornekhesap</a>
+        </li>
+        <li>
+          <strong>YouTube:</strong>
+          <a href="https://youtube.com/channel/ornekkanal" target="_blank" rel="noopener">YouTube Kanalı</a>
+        </li>
+      </ul>
+
+      <!-- Geri butonu: index.html'e dönmek için -->
+      <p style="margin-top:20px;">
+        <a href="index.html">← Geri</a>
+      </p>
+    </div>
+  </div>
+</body>
+</html>
