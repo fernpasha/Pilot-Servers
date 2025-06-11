@@ -1,13 +1,10 @@
-<!DOCTYPE html>
-<html lang="tr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pilot Sunucular</title>
+  <title>Sayfa Başlığı</title>
   <!-- Google Fonts (opsiyonel) -->
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap" rel="stylesheet">
   <style>
-    /* Body arkaplan resmi */
     body {
       margin: 0;
       padding: 0;
@@ -15,7 +12,6 @@
       background-size: cover;
       font-family: 'Roboto', sans-serif;
     }
-    /* Uzerine koyu overlay ile okunabilirlik */
     .overlay {
       background: rgba(0, 0, 0, 0.6);
       min-height: 100vh;
@@ -24,7 +20,6 @@
       justify-content: center;
       padding: 20px;
     }
-    /* Icerik kutusu */
     .container {
       max-width: 600px;
       width: 100%;
@@ -34,7 +29,6 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.3);
       padding: 20px 30px;
     }
-    /* Basliklar */
     h1 {
       font-size: 1.8rem;
       margin: 0 0 10px 0;
@@ -53,7 +47,6 @@
       margin: 15px 0 8px 0;
       font-weight: 500;
     }
-    /* Liste stili */
     ul {
       list-style: none;
       padding: 0;
@@ -64,7 +57,6 @@
       display: flex;
       align-items: center;
     }
-    /* Renkli daire (badge) */
     .badge {
       display: inline-block;
       width: 12px;
@@ -82,7 +74,9 @@
     .badge-blue {
       background-color: #3498db;
     }
-    /* Link stili */
+    /* İleride başka renk eklemek istersen: 
+       .badge-green { background-color: #27ae60; }
+       .badge-purple { background-color: #9b59b6; } vb. */
     a {
       color: #0066cc;
       text-decoration: none;
@@ -91,7 +85,6 @@
     a:hover {
       text-decoration: underline;
     }
-    /* Mobil uyum */
     @media (max-width: 500px) {
       .container {
         padding: 15px 20px;
@@ -111,77 +104,3 @@
     }
   </style>
 </head>
-<body>
-  <div class="overlay">
-    <div class="container">
-      <!-- Ana Baslik -->
-      <h1>🚀 fernpasha's Pilot Servers</h1>
-
-      <!-- Counter Strike 1.6 Servers -->
-      <h2>Counter Strike 1.6 Servers</h2>
-
-      <!-- CSDuragi Grubu -->
-      <h3>CSDuragi</h3>
-      <ul>
-        <li>
-          <span class="badge badge-red"></span>
-          <a href="steam://connect/213.238.173.3:27015">TRBC Pro Public (CSD)</a>
-        </li>
-        <li>
-          <span class="badge badge-red"></span>
-          <a href="steam://connect/213.238.173.206:27015">SBW Pro Public (CSD)</a>
-        </li>
-        <li>
-          <span class="badge badge-red"></span>
-          <a href="steam://connect/213.238.173.20:27015">Jetaime Gungame (CSD)</a>
-        </li>
-      </ul>
-
-      <!-- OyunYoneticisi Grubu -->
-      <h3>OyunYoneticisi</h3>
-      <ul>
-        <li>
-          <span class="badge badge-orange"></span>
-          <a href="steam://connect/95.173.173.11:27015">ReckLesS Pro Public (OYT)</a>
-        </li>
-        <li>
-          <span class="badge badge-orange"></span>
-          <a href="steam://connect/95.173.174.11:27015">ReckLesS Match (OYT)</a>
-        </li>
-        <li>
-          <span class="badge badge-orange"></span>
-          <a href="steam://connect/95.173.173.24:27015">FastDraw CS2 Mode (OYT)</a>
-        </li>
-        <li>
-          <span class="badge badge-orange"></span>
-          <a href="steam://connect/95.173.173.131:27015">FastDraw Zombie Escape (OYT)</a>
-        </li>
-        <li>
-          <span class="badge badge-orange"></span>
-          <a href="steam://connect/95.173.174.10:27015">FastDraw Match (OYT)</a>
-        </li>
-      </ul>
-
-      <!-- Counter Strike 2 Servers -->
-      <h2>Counter Strike 2 Servers</h2>
-
-      <!-- ProOyun Grubu -->
-      <h3>ProOyun</h3>
-      <ul>
-        <li>
-          <span class="badge badge-blue"></span>
-          <!-- IP: 185.193.165.21:27015 olarak orneklendi; farkli port kullanirsan burayi duzenle -->
-          <a href="steam://connect/185.193.165.21:27015">Elite Jailbreak</a>
-        </li>
-      </ul>
-
-      <!-- Istege bagli alt bilgi -->
-      <!--
-      <p style="margin-top:20px; font-size:0.9rem; color:#555;">
-        Daha fazla bilgi icin Discord: fernpasha#1234
-      </p>
-      -->
-    </div>
-  </div>
-</body>
-</html>
