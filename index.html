@@ -1,10 +1,12 @@
+<!DOCTYPE html>
+<html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>fernpasha's Pilot Servers</title>
-  <!-- Google Fonts (opsiyonel) -->
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap" rel="stylesheet">
   <style>
+    /* Genel stil */
     body {
       margin: 0;
       padding: 0;
@@ -65,106 +67,60 @@
       margin-right: 10px;
       flex-shrink: 0;
     }
-    .badge-red {
-      background-color: #e74c3c;
-    }
-    .badge-orange {
-      background-color: #e67e22;
-    }
-    .badge-blue {
-      background-color: #3498db;
-    }
-    .badge-purple {
-      background-color: #9b59b6;
-    }
-    /* İleride başka renk eklemek istersen: 
-       .badge-green { background-color: #27ae60; }
-       .badge-purple { background-color: #9b59b6; } vb. */
+    .badge-red { background-color: #e74c3c; }
+    .badge-orange { background-color: #e67e22; }
+    .badge-blue { background-color: #3498db; }
+    .badge-purple { background-color: #9b59b6; }
+
     a {
       color: #0066cc;
       text-decoration: none;
       font-weight: 500;
     }
-    a:hover {
-      text-decoration: underline;
-    }
+    a:hover { text-decoration: underline; }
+
     @media (max-width: 500px) {
-      .container {
-        padding: 15px 20px;
-      }
-      h1 {
-        font-size: 1.5rem;
-      }
-      h2 {
-        font-size: 1.2rem;
-      }
-      h3 {
-        font-size: 1.1rem;
-      }
-      li {
-        font-size: 0.95rem;
-      }
+      .container { padding: 15px 20px; }
+      h1 { font-size: 1.5rem; }
+      h2 { font-size: 1.2rem; }
+      h3 { font-size: 1.1rem; }
+      li { font-size: 0.95rem; }
     }
-  </style>
-</head>
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pilot Sunucular</title>
-  <!-- Ortak stil burada -->
-  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap" rel="stylesheet">
-  <style>
-    /* ... yukarıdaki CSS kodu buraya yapıştır ... */
   </style>
 </head>
 <body>
   <div class="overlay">
     <div class="container">
-      <!-- Ana Başlık -->
+      <!-- Ana Baslik -->
       <h1>🚀 fernpasha's Pilot Servers</h1>
 
       <!-- CS 1.6 -->
       <h2>Counter Strike 1.6 Servers</h2>
-      <h3>CSDuragi</h3>
-      <ul>
-        <li>
-          <span class="badge badge-red"></span>
-          <!-- TRBC detay sayfası: trbc.html -->
-          <a href="trbc.html">TRBC Pro Public (CSD)</a>
-        </li>
-        <li>
-          <span class="badge badge-red"></span>
-          <a href="sbw.html">SBW Pro Public (CSD)</a>
-        </li>
-        <li>
-          <span class="badge badge-red"></span>
-          <a href="jetaime.html">Jetaime Gungame (CSD)</a>
-        </li>
-      </ul>
+
+      <!-- CSDuragi bolumu KALDIRILDI (istek uzerine itemlar OyunYoneticisi'ne tasindi) -->
 
       <h3>OyunYoneticisi</h3>
       <ul>
+        <!-- Mevcut OYT sunuculari -->
         <li>
           <span class="badge badge-orange"></span>
-          <a href="reckless_public.html">ReckLesS Pro Public (OYT)</a>
+          <a href="trbc.html">TRBC Pro Public (CSD)</a>
         </li>
         <li>
           <span class="badge badge-orange"></span>
-          <a href="reckless_match.html">ReckLesS Match (OYT)</a>
+          <a href="reckless_public.html">ReckLesS Pro Public</a>
         </li>
         <li>
           <span class="badge badge-orange"></span>
-          <a href="fastdraw_cs2.html">FastDraw CS2 Mode (OYT)</a>
+          <a href="fastdraw_cs2.html">FastDraw JailBreak</a>
         </li>
         <li>
           <span class="badge badge-orange"></span>
-          <a href="fastdraw_zombie.html">FastDraw Zombie Escape (OYT)</a>
+          <a href="fastdraw_cs2.html">FastDraw CS2 Mode</a>
         </li>
         <li>
           <span class="badge badge-orange"></span>
-          <a href="fastdraw_match.html">FastDraw Match (OYT)</a>
+          <a href="serahor_valorant.html">Senahor Valorant Mode</a>
         </li>
       </ul>
 
@@ -177,6 +133,8 @@
           <a href="elite_jailbreak.html">Elite Jailbreak (ProOyun)</a>
         </li>
       </ul>
+
+      <!-- Eklentiler -->
       <h2>My Plugins</h2>
       <ul>
         <li>
@@ -188,12 +146,6 @@
           <a href="plugin_server.html">Servers Using My Plugins (Maintenance)</a>
         </li>
       </ul>
-      <!-- İsteğe bağlı footer / iletişim -->
-      <!--
-      <p style="margin-top:20px; font-size:0.9rem; color:#555;">
-        Daha fazla: Discord: fernpasha#1234
-      </p>
-      -->
     </div>
   </div>
 </body>
