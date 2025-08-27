@@ -6,144 +6,164 @@
   <title>fernpasha's Pilot Servers</title>
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap" rel="stylesheet">
   <style>
-    /* Genel stil */
-    body {
-      margin: 0;
-      padding: 0;
-      background: url('background.jpg') no-repeat center center fixed;
-      background-size: cover;
-      font-family: 'Roboto', sans-serif;
+    /* === plugin_intro.html ile uyumlu tasarım değişkenleri === */
+    :root{
+      --bg-dim: rgba(0,0,0,.6);
+      --panel: rgba(255,255,255,.95);
+      --text: #333;
+      --brand: #6c5ce7;
+      --muted: #8f9aa7;
+      --link:#0066cc;
+      --ring: rgba(108,92,231,.25);
+      --border:#e7ecf5;
     }
-    .overlay {
-      background: rgba(0, 0, 0, 0.6);
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      padding:0;
+      background:url('background.jpg') no-repeat center center fixed;
+      background-size:cover;
+      font-family:'Roboto',sans-serif;
+      color:var(--text);
     }
-    .container {
-      max-width: 600px;
-      width: 100%;
-      background: rgba(255, 255, 255, 0.95);
-      color: #333;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-      padding: 20px 30px;
+    .overlay{background:var(--bg-dim); min-height:100vh; padding:24px}
+    .wrap{
+      max-width:1050px; margin:0 auto; background:var(--panel);
+      border-radius:12px; box-shadow:0 8px 28px rgba(0,0,0,.35);
+      padding:24px;
     }
-    h1 {
-      font-size: 1.8rem;
-      margin: 0 0 10px 0;
-      text-align: center;
-      font-weight: 500;
-    }
-    h2 {
-      font-size: 1.4rem;
-      margin: 20px 0 10px 0;
-      border-bottom: 2px solid #ccc;
-      padding-bottom: 5px;
-      font-weight: 500;
-    }
-    h3 {
-      font-size: 1.2rem;
-      margin: 15px 0 8px 0;
-      font-weight: 500;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    li {
-      margin: 8px 0;
-      display: flex;
-      align-items: center;
-    }
-    .badge {
-      display: inline-block;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      margin-right: 10px;
-      flex-shrink: 0;
-    }
-    .badge-red { background-color: #e74c3c; }
-    .badge-orange { background-color: #e67e22; }
-    .badge-blue { background-color: #3498db; }
-    .badge-purple { background-color: #9b59b6; }
 
-    a {
-      color: #0066cc;
-      text-decoration: none;
-      font-weight: 500;
-    }
-    a:hover { text-decoration: underline; }
+    /* Başlık */
+    header{display:flex; align-items:center; justify-content:center; text-align:center}
+    header h1{font-size:1.8rem; margin:0; font-weight:500}
+    header small{display:block; color:var(--muted); margin-top:6px}
 
-    @media (max-width: 500px) {
-      .container { padding: 15px 20px; }
-      h1 { font-size: 1.5rem; }
-      h2 { font-size: 1.2rem; }
-      h3 { font-size: 1.1rem; }
-      li { font-size: 0.95rem; }
+    /* Bölüm kartları */
+    .section{
+      border:1px solid var(--border);
+      background:#fff; border-radius:14px;
+      box-shadow:0 2px 10px rgba(0,0,0,.06);
+      margin-top:18px; overflow:hidden;
+    }
+    .section-head{
+      padding:14px 16px; border-bottom:1px solid var(--border);
+      background:linear-gradient(90deg,#f7f8ff,#ffffff);
+    }
+    .section-head h2{margin:0; font-size:1.4rem; font-weight:500}
+    .section-body{padding:14px 16px}
+
+    /* Alt başlıklar (değiştirmeden koru) */
+    h3{font-size:1.2rem; margin:10px 0 8px 0; font-weight:500}
+
+    /* Liste */
+    ul{list-style:none; padding:0; margin:0}
+    li{
+      display:flex; align-items:center; gap:10px;
+      padding:8px 0; border-bottom:1px dashed var(--border);
+    }
+    li:last-child{border-bottom:none}
+
+    /* Renk rozetleri (orijinal sınıflar korunur) */
+    .badge{display:inline-block; width:12px; height:12px; border-radius:50%; flex-shrink:0}
+    .badge-red{background:#e74c3c}
+    .badge-orange{background:#e67e22}
+    .badge-blue{background:#3498db}
+    .badge-purple{background:#9b59b6}
+
+    /* Linkler */
+    a{color:var(--link); text-decoration:none; font-weight:500}
+    a:hover{text-decoration:underline}
+
+    /* Küçük ekran */
+    @media (max-width:700px){
+      .wrap{padding:18px}
+      header h1{font-size:1.6rem}
+      .section-head h2{font-size:1.25rem}
     }
   </style>
 </head>
 <body>
   <div class="overlay">
-    <div class="container">
-      <!-- Ana Baslik -->
-      <h1>🚀 fernpasha's Pilot Servers</h1>
-      <!-- Eklentiler -->
-      <h2>My Plugins</h2>
-      <ul>
-        <li>
-          <span class="badge badge-purple"></span>
-          <a href="plugin_intro.html">Plugins for Sale</a>
-        </li>
-        <li>
-          <span class="badge badge-purple"></span>
-          <a href="plugin_server.html">Servers Using My Plugins (Maintenance)</a>
-        </li>
-      </ul>
-      <!-- CS 1.6 -->
-      <h2>Counter Strike 1.6 Servers</h2>
+    <div class="wrap">
 
-      <!-- CSDuragi bolumu KALDIRILDI (istek uzerine itemlar OyunYoneticisi'ne tasindi) -->
+      <!-- Ana Baslik (metin korunur) -->
+      <header>
+        <div>
+          <h1>🚀 fernpasha's Pilot Servers</h1>
+          <small>Index</small>
+        </div>
+      </header>
 
-      <h3>OyunYoneticisi</h3>
-      <ul>
-        <!-- Mevcut OYT sunuculari -->
-        <li>
-          <span class="badge badge-orange"></span>
-          <a href="trbc.html">TRBC Pro Public</a>
-        </li>
-        <li>
-          <span class="badge badge-orange"></span>
-          <a href="reckless_public.html">ReckLesS Pro Public</a>
-        </li>
-        <li>
-          <span class="badge badge-orange"></span>
-          <a href="fastdraw_match.html">FastDraw JailBreak</a>
-        </li>
-        <li>
-          <span class="badge badge-orange"></span>
-          <a href="fastdraw_cs2.html">FastDraw CS2 Mode</a>
-        </li>
-        <li>
-          <span class="badge badge-orange"></span>
-          <a href="serahor_valorant.html">Serahor Valorant Mode</a>
-        </li>
-      </ul>
+      <!-- ========== Counter Strike 1.6 ========== -->
+      <section class="section">
+        <div class="section-head">
+          <h2>Counter Strike 1.6 Servers</h2>
+        </div>
+        <div class="section-body">
 
-      <!-- CS2 -->
-      <h2>Counter Strike 2 Servers</h2>
-      <h3>ProOyun</h3>
-      <ul>
-        <li>
-          <span class="badge badge-blue"></span>
-          <a href="elite_jailbreak.html">Elite Jailbreak (ProOyun)</a>
-        </li>
-      </ul>
+          <!-- CSDuragi bolumu KALDIRILDI (istek uzerine itemlar OyunYoneticisi'ne tasindi) -->
+          <h3>OyunYoneticisi</h3>
+          <ul>
+            <li>
+              <span class="badge badge-orange"></span>
+              <a href="trbc.html">TRBC Pro Public</a>
+            </li>
+            <li>
+              <span class="badge badge-orange"></span>
+              <a href="reckless_public.html">ReckLesS Pro Public</a>
+            </li>
+            <li>
+              <span class="badge badge-orange"></span>
+              <a href="fastdraw_match.html">FastDraw JailBreak</a>
+            </li>
+            <li>
+              <span class="badge badge-orange"></span>
+              <a href="fastdraw_cs2.html">FastDraw CS2 Mode</a>
+            </li>
+            <li>
+              <span class="badge badge-orange"></span>
+              <a href="serahor_valorant.html">Serahor Valorant Mode</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ========== Counter Strike 2 ========== -->
+      <section class="section">
+        <div class="section-head">
+          <h2>Counter Strike 2 Servers</h2>
+        </div>
+        <div class="section-body">
+          <h3>ProOyun</h3>
+          <ul>
+            <li>
+              <span class="badge badge-blue"></span>
+              <a href="elite_jailbreak.html">Elite Jailbreak (ProOyun)</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ========== My Plugins ========== -->
+      <section class="section">
+        <div class="section-head">
+          <h2>My Plugins</h2>
+        </div>
+        <div class="section-body">
+          <ul>
+            <li>
+              <span class="badge badge-purple"></span>
+              <a href="plugin_intro.html">Plugin Introduction (Maintenance)</a>
+            </li>
+            <li>
+              <span class="badge badge-purple"></span>
+              <a href="plugin_server.html">Servers Using My Plugins (Maintenance)</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+
     </div>
   </div>
 </body>
