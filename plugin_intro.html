@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Plugin Introduction (Maintenance) · fernpasha</title>
+
+  <!-- Tipografi, sayfa stili -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg-dim: rgba(0,0,0,.6);
+      --panel: rgba(255,255,255,.95);
+      --text: #333;
+      --brand: #6c5ce7;
+      --muted: #8f9aa7;
+      --ok: #27ae60;
+      --warn: #e67e22;
+      --danger:#e74c3c;
+      --link:#0066cc;
+      --chip:#eef2ff;
+      --chip-text:#3949ab;
+      --ring: rgba(108,92,231,.25);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; padding:0; font-family:'Roboto',sans-serif; color:var(--text);
+      background:url('background.jpg') no-repeat center center fixed; background-size:cover;
+    }
+    .overlay{background:var(--bg-dim); min-height:100vh; padding:24px}
+    .wrap{max-width:1050px; margin:0 auto; background:var(--panel); border-radius:12px; box-shadow:0 8px 28px rgba(0,0,0,.35); padding:24px}
+    header{display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:space-between; margin-bottom:12px}
+    .title{font-size:1.6rem; margin:0; font-weight:500}
+    .back a{color:var(--link); text-decoration:none; font-weight:500}
+    .back a:hover{text-decoration:underline}
+
+    /* Toolbar: arama + siralama */
+    .toolbar{display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin:12px 0 18px}
+    .search{flex:1 1 280px; position:relative}
+    .search input{
+      width:100%; padding:12px 14px; border:1px solid #d9dfeb; border-radius:10px; outline:none;
+      transition:border .2s, box-shadow .2s;
+    }
+    .search input:focus{border-color:var(--brand); box-shadow:0 0 0 4px var(--ring)}
+    .sort select{
+      padding:12px 14px; border:1px solid #d9dfeb; border-radius:10px; background:#fff; outline:none;
+    }
+
+    /* TOC (icerik) */
+    .toc{display:flex; flex-wrap:wrap; gap:8px; margin:2px 0 18px}
+    .toc a{
+      text-decoration:none; background:var(--chip); color:var(--chip-text); padding:8px 12px; border-radius:999px; font-size:.92rem; font-weight:500;
+    }
+    .toc a:hover{text-decoration:underline}
+
+    /* Kart grid */
+    .grid{display:grid; grid-template-columns:repeat(12,1fr); gap:16px}
+    .card{
+      grid-column:span 12;
+      border:1px solid #e7ecf5; border-radius:14px; overflow:hidden; background:#fff;
+      box-shadow:0 2px 10px rgba(0,0,0,.06);
+    }
+    .cardhead{
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      background:linear-gradient(90deg, #f7f8ff, #ffffff);
+      padding:14px 16px; border-bottom:1px solid #eef1f7;
+    }
+    .cardhead h2{margin:0; font-size:1.2rem; font-weight:500}
+    .status{
+      display:inline-flex; align-items:center; gap:6px; padding:6px 10px; border-radius:999px; font-size:.85rem; background:#fef6e7; color:#a85d12;
+    }
+    .status b{font-weight:500}
+    .price{
+      display:inline-flex; gap:6px; align-items:baseline; background:#f0fff4; color:#1e7a3a; border:1px solid #d6f5e1;
+      padding:6px 10px; border-radius:8px; font-weight:600;
+    }
+
+    .cardbody{display:grid; grid-template-columns: 1.2fr 2fr; gap:18px; padding:16px}
+    .media{
+      border:1px solid #eef1f7; border-radius:10px; overflow:hidden; background:#fafbff;
+    }
+    .media .thumbs{display:grid; grid-template-columns:1fr; gap:0}
+    .media img{
+      width:100%; aspect-ratio:16/9; object-fit:cover; display:block; cursor:pointer;
+    }
+    .media .cap{padding:10px 12px; font-size:.9rem; color:var(--muted); border-top:1px dashed #e7ecf5}
+    .info h3{margin:0 0 8px 0; font-size:1.05rem}
+    .info p{margin:0 0 10px 0; line-height:1.55}
+    .chips{display:flex; flex-wrap:wrap; gap:6px; margin:10px 0 12px}
+    .chip{background:#eef2ff; color:#3f51b5; padding:6px 10px; border-radius:999px; font-size:.85rem}
+    .actions{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
+    .btn{
+      border:1px solid #d9dfeb; background:#fff; padding:10px 14px; border-radius:10px; cursor:pointer; font-weight:500;
+      text-decoration:none; color:#1f2a37; display:inline-flex; align-items:center; gap:8px;
+    }
+    .btn:hover{border-color:var(--brand); box-shadow:0 0 0 4px var(--ring)}
+    .btn.primary{background:var(--brand); color:#fff; border-color:transparent}
+    .btn.primary:hover{box-shadow:0 0 0 4px var(--ring)}
+
+    /* Tablo (teknik ozellikler) */
+    .kv{width:100%; border-collapse:collapse; font-size:.95rem; margin-top:6px}
+    .kv th,.kv td{padding:8px 10px; border-bottom:1px solid #eef1f7; text-align:left}
+    .kv th{width:160px; color:#5b6472; font-weight:500}
+    .kv .ok{color:var(--ok); font-weight:600}
+    .kv .warn{color:var(--warn); font-weight:600}
+    .kv .danger{color:var(--danger); font-weight:600}
+
+    /* Responsive */
+    @media (max-width: 900px){
+      .cardbody{grid-template-columns:1fr}
+    }
+
+    /* Lightbox */
+    .lightbox{
+      position:fixed; inset:0; background:rgba(0,0,0,.8);
+      display:none; align-items:center; justify-content:center; padding:24px; z-index:99;
+    }
+    .lightbox.open{display:flex}
+    .lightbox img{max-width:100%; max-height:90vh; border-radius:10px; box-shadow:0 10px 40px rgba(0,0,0,.6)}
+    .lightbox .close{
+      position:absolute; top:16px; right:16px; background:#fff; border:none; border-radius:10px; padding:10px 12px; cursor:pointer; font-weight:600;
+    }
+    .empty{display:none; padding:18px; border:1px dashed #e7ecf5; border-radius:10px; text-align:center; color:var(--muted)}
+    .empty.show{display:block}
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <div class="wrap">
+
+      <header>
+        <h1 class="title">Plugin Introduction <small style="color:#8f9aa7;font-size:.95rem">/ Maintenance</small></h1>
+        <div class="back"><a href="index.html">← Indekse don</a></div>
+      </header>
+
+      <!-- Kullanici dostu kisa notlar -->
+      <!--
+        🧩 Nasil kullanilir?
+        - Asagidaki her .card bir plugin. A/B/C orneklerini cogalt.
+        - Fiyat icin data-price (sayi) alanini guncelle (sadece rakam, TL icin).
+        - Tarih siralamasinda data-date (YYYY-MM-DD) alanini kullan.
+        - Goruntu/gifleri assets/plugins/<kendi-klasorun>/ altina koy ve <img src> yollarini duzelt.
+        - Iletisim butonunu mailto: veya WhatsApp linki ile degistirebilirsin.
+      -->
+
+      <!-- Toolbar: arama ve siralama -->
+      <div class="toolbar">
+        <div class="search">
+          <input id="search" type="text" placeholder="Ara: isim, ozellik, etiket..." />
+        </div>
+        <div class="sort">
+          <select id="sort">
+            <option value="date-desc">Sırala: En yeni</option>
+            <option value="price-asc">Sırala: Fiyat (Artan)</option>
+            <option value="price-desc">Sırala: Fiyat (Azalan)</option>
+            <option value="title-asc">Sırala: A→Z</option>
+            <option value="title-desc">Sırala: Z→A</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Icerik haritasi (hiyerarsi linkleri) -->
+      <nav class="toc" aria-label="Icerik">
+        <a href="#a-plugini">A Plugini</a>
+        <a href="#b-plugini">B Plugini</a>
+        <a href="#c-plugini">C Plugini</a>
+      </nav>
+
+      <div id="grid" class="grid">
+
+        <!-- ===================== A Plugini ===================== -->
+        <article id="a-plugini" class="card" data-tags="reapi renkli-sohbet nvault admin-menu cs16" data-price="750" data-date="2025-08-20" data-title="A Plugini">
+          <div class="cardhead">
+            <h2>A Plugini</h2>
+            <div style="display:flex; gap:8px; align-items:center;">
+              <span class="status" title="Bakim">
+                <!-- durumu istersen degistir: Yayinda / Bakim / Beta -->
+                <span>Durum:</span> <b>Bakim</b>
+              </span>
+              <span class="price" title="Fiyat (TL)">₺ 750</span>
+            </div>
+          </div>
+
+          <div class="cardbody">
+            <!-- Media alanı: tek bir kapak veya ufak galeri -->
+            <aside class="media">
+              <div class="thumbs">
+                <img src="assets/plugins/a/cover.gif" alt="A Plugini - Kapak" data-lightbox>
+                <!-- Istersen ek thumb ekle -->
+                <!-- <img src="assets/plugins/a/ss1.webp" alt="A Plugini - Ekran goruntusu" data-lightbox> -->
+              </div>
+              <div class="cap">Kapak: 1280×720 GIF/WEBP oneri. Gorseli tiklayinca buyur.</div>
+            </aside>
+
+            <!-- Bilgi alani -->
+            <section class="info">
+              <h3>Kısa Tanıtım</h3>
+              <p>
+                Sunucu deneyimini zenginlestiren, %100 ReAPI uyumlu bir CS 1.6 eklentisi. Renkli sohbet,
+                menulu admin kontrol ve nVault kalicilik ile geliyor. Performans dostu, derleyici uyumlu.
+              </p>
+
+              <div class="chips">
+                <span class="chip">ReAPI %100</span>
+                <span class="chip">nVault</span>
+                <span class="chip">Menu Kontrollu</span>
+                <span class="chip">Renkli Sohbet</span>
+              </div>
+
+              <table class="kv" aria-label="Teknik Ozellikler">
+                <tr><th>Uygunluk</th><td class="ok">AMXX 1.9+ / OYT / CSD Mod X</td></tr>
+                <tr><th>Bagimlilik</th><td>reapi, fakemeta, hamsandwich (gerekiyorsa)</td></tr>
+                <tr><th>Kullanim</th><td>Menuden ac/kapat, #define ile moduler ayarlar</td></tr>
+                <tr><th>Kalicilik</th><td>nVault anahtar: <code>prefix_map_adi</code>, <code>player_guid</code></td></tr>
+                <tr><th>Performans</th><td class="ok">Dusuk maliyetli; HUD/sound throttling</td></tr>
+              </table>
+
+              <div class="actions">
+                <a class="btn primary" href="mailto:hello@example.com?subject=A%20Plugini%20Satin%20Alim&body=Merhaba%2C%20A%20Plugini%20icin%20iletisime%20geciyorum.">
+                  Satin Al / Iletisim
+                </a>
+                <a class="btn" href="#a-plugini">Hiyerarsi: Plugin Introduction → A Plugini</a>
+                <a class="btn" href="assets/plugins/a/readme.txt" target="_blank">Readme (varsa)</a>
+              </div>
+            </section>
+          </div>
+        </article>
+
+        <!-- ===================== B Plugini ===================== -->
+        <article id="b-plugini" class="card" data-tags="reapi recoil accuracy menu cs16" data-price="950" data-date="2025-08-15" data-title="B Plugini">
+          <div class="cardhead">
+            <h2>B Plugini</h2>
+            <div style="display:flex; gap:8px; align-items:center;">
+              <span class="status"><span>Durum:</span> <b>Yayinda</b></span>
+              <span class="price">₺ 950</span>
+            </div>
+          </div>
+
+          <div class="cardbody">
+            <aside class="media">
+              <div class="thumbs">
+                <img src="assets/plugins/b/cover.webp" alt="B Plugini - Kapak" data-lightbox>
+              </div>
+              <div class="cap">.webp oneri: daha dusuk boyut, hizli yukleme.</div>
+            </aside>
+
+            <section class="info">
+              <h3>Kısa Tanıtım</h3>
+              <p>
+                Recoil/accuracy uzerine gelismis kontrol sunar. Ilk X mermi davranisi, pattern azaltma
+                ve hareketli durumlarda adaptif dengeleme icerir. Admin menusu ile anlik tuning yapilabilir.
+              </p>
+
+              <div class="chips">
+                <span class="chip">Recoil/Accuracy</span>
+                <span class="chip">Admin Menu</span>
+                <span class="chip">Profil Kaydetme</span>
+              </div>
+
+              <table class="kv">
+                <tr><th>Uygunluk</th><td class="ok">AMXX 1.9+ / ReAPI</td></tr>
+                <tr><th>Bagimlilik</th><td>reapi, hamsandwich</td></tr>
+                <tr><th>Ozellik</th><td>Haritaya/raunda gore auto-reset</td></tr>
+                <tr><th>Kalicilik</th><td>nVault profil / oyuncu bazli</td></tr>
+              </table>
+
+              <div class="actions">
+                <a class="btn primary" href="mailto:hello@example.com?subject=B%20Plugini%20Satin%20Alim">Satin Al / Iletisim</a>
+                <a class="btn" href="#b-plugini">Hiyerarsi: Plugin Introduction → B Plugini</a>
+              </div>
+            </section>
+          </div>
+        </article>
+
+        <!-- ===================== C Plugini ===================== -->
+        <article id="c-plugini" class="card" data-tags="cs16 fun weapon tau cannon dual primary gif" data-price="1200" data-date="2025-08-12" data-title="C Plugini">
+          <div class="cardhead">
+            <h2>C Plugini</h2>
+            <div style="display:flex; gap:8px; align-items:center;">
+              <span class="status"><span>Durum:</span> <b>Beta</b></span>
+              <span class="price">₺ 1200</span>
+            </div>
+          </div>
+
+          <div class="cardbody">
+            <aside class="media">
+              <div class="thumbs">
+                <img src="assets/plugins/c/clip1.gif" alt="C Plugini - Oyun ici GIF" data-lightbox>
+                <!-- ikinci/ucuncu goruntu ekleyebilirsin -->
+                <!-- <img src="assets/plugins/c/clip2.gif" alt="C Plugini - Oyun ici GIF 2" data-lightbox> -->
+              </div>
+              <div class="cap">GIF: 6-10 sn loop, 720p yeterli.</div>
+            </aside>
+
+            <section class="info">
+              <h3>Kısa Tanıtım</h3>
+              <p>
+                Eglence ve aksiyon odakli yeni silah mekaniği. Cifte primary desteği, durum bazli
+                ses/efekt uretimi ve guvenli sarj/ates algoritmasi icerir.
+              </p>
+
+              <div class="chips">
+                <span class="chip">Yeni Silah Mekanigi</span>
+                <span class="chip">Dual Primary</span>
+                <span class="chip">Efekt Optimizasyon</span>
+              </div>
+
+              <table class="kv">
+                <tr><th>Uygunluk</th><td class="ok">AMXX 1.9+ / ReAPI</td></tr>
+                <tr><th>Bagimlilik</th><td>reapi, fakemeta, hamsandwich, fun</td></tr>
+                <tr><th>Not</th><td class="warn">Beta surecinde API degisebilir</td></tr>
+              </table>
+
+              <div class="actions">
+                <a class="btn primary" href="mailto:hello@example.com?subject=C%20Plugini%20Satin%20Alim">Satin Al / Iletisim</a>
+                <a class="btn" href="#c-plugini">Hiyerarsi: Plugin Introduction → C Plugini</a>
+              </div>
+            </section>
+          </div>
+        </article>
+
+      </div>
+
+      <div id="empty" class="empty">Arama kriterlerine uyan plugin bulunamadi.</div>
+
+      <footer style="margin-top:18px; color:#8f9aa7; font-size:.92rem">
+        <!-- Insani, gelistirici-dostu minik not -->
+        Bu sayfa statik HTML + vanilla JS ile calisir. Ornekler placeholder’dır; fiyatlar, bagimliliklar ve gorselleri
+        kendine gore guncelle. Gorsel yollarini dogru verdiginden emin ol (or: <code>assets/plugins/a/cover.gif</code>).
+      </footer>
+
+    </div>
+  </div>
+
+  <!-- Lightbox (basit) -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Gorsel">
+    <button class="close" type="button" aria-label="Kapat">Kapat ✕</button>
+    <img alt="">
+  </div>
+
+  <script>
+    // Basit arama/siralama ve lightbox
+
+    const grid = document.getElementById('grid');
+    const cards = Array.from(grid.querySelectorAll('.card'));
+    const search = document.getElementById('search');
+    const sort = document.getElementById('sort');
+    const empty = document.getElementById('empty');
+
+    function applyFilter(){
+      const q = (search.value || '').trim().toLowerCase();
+      let visible = 0;
+      cards.forEach(card=>{
+        const hay = [
+          card.dataset.title || '',
+          card.id || '',
+          card.dataset.tags || ''
+        ].join(' ').toLowerCase();
+        const hit = !q || hay.includes(q);
+        card.style.display = hit ? '' : 'none';
+        if (hit) visible++;
+      });
+      empty.classList.toggle('show', visible === 0);
+    }
+
+    function applySort(){
+      const mode = sort.value;
+      const sorters = {
+        'price-asc':  (a,b)=> (+a.dataset.price||0) - (+b.dataset.price||0),
+        'price-desc': (a,b)=> (+b.dataset.price||0) - (+a.dataset.price||0),
+        'date-desc':  (a,b)=> new Date(b.dataset.date||0) - new Date(a.dataset.date||0),
+        'title-asc':  (a,b)=> (a.dataset.title||'').localeCompare(b.dataset.title||'','tr'),
+        'title-desc': (a,b)=> (b.dataset.title||'').localeCompare(a.dataset.title||'','tr'),
+      };
+      const sorted = cards.slice().sort(sorters[mode] || sorters['date-desc']);
+      // Sadece gorunenleri sirayla tekrar ekle, display:none olanlarin sirasi korunur
+      const visible = sorted.filter(c => c.style.display !== 'none');
+      const hidden  = sorted.filter(c => c.style.display === 'none');
+      [...visible, ...hidden].forEach(c => grid.appendChild(c));
+    }
+
+    search.addEventListener('input', ()=>{ applyFilter(); applySort(); });
+    sort.addEventListener('change', ()=> applySort());
+
+    // Ilk durum
+    applyFilter();
+    applySort();
+
+    // Lightbox
+    const lb = document.getElementById('lightbox');
+    const lbImg = lb.querySelector('img');
+    const lbClose = lb.querySelector('.close');
+
+    document.addEventListener('click', (e)=>{
+      const t = e.target;
+      if (t && t.hasAttribute('data-lightbox')) {
+        lbImg.src = t.src;
+        lb.classList.add('open');
+      }
+    });
+    lbClose.addEventListener('click', ()=> lb.classList.remove('open'));
+    lb.addEventListener('click', (e)=> {
+      if (e.target === lb) lb.classList.remove('open');
+    });
+
+    // Erişilebilirlik: ESC ile kapat
+    document.addEventListener('keydown', (e)=>{
+      if (e.key === 'Escape') lb.classList.remove('open');
+    });
+  </script>
+</body>
+</html>
