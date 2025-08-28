@@ -164,7 +164,7 @@
       <nav class="toc" aria-label="Icerik">
         <a href="#simple_c4_defuse">Simple C4 Defuse</a>
         <a href="#c4_location">C4 Location</a>
-        <!--<a href="#b-plugini">B Plugini</a>-->
+        <a href="#radio_ping_plugin">Radio Ping Plugin</a>
         <!--<a href="#c-plugini">C Plugini</a>-->
       </nav>
 
@@ -173,7 +173,7 @@
 <article id="simple_c4_defuse"
          class="card"
          data-tags="defuse c4 spike notlooking ct-only"
-         data-price="100"
+         data-price="200"
          data-date="2025-08-27"
          data-title="Simple C4 Defuse">
   <div class="cardhead">
@@ -246,7 +246,7 @@
 <article id="c4_location"
          class="card"
          data-tags="location c4 spike"
-         data-price="100"
+         data-price="200"
          data-date="2025-08-28"
          data-title="C4 Location">
   <div class="cardhead">
@@ -322,7 +322,82 @@
     </section>
   </div>
 </article>
+ <!-- ===================== Radio Ping Plugin ===================== -->
+<article id="radio_ping_plugin"
+         class="card"
+         data-tags="radio ping info"
+         data-price="200"
+         data-date="2025-08-28"
+         data-title="Radio Ping Plugin">
+  <div class="cardhead">
+    <h2>Radio Ping Plugin</h2>
+    <div style="display:flex; gap:8px; align-items:center;">
+      <span class="status"><span>Durum:</span> <b>Yayında</b></span>
+      <span class="price">200₺ / 500₺</span>
+    </div>
+  </div>
 
+  <div class="cardbody">
+    <!-- Görsel/GIF (placeholder: cover.webp) -->
+    <aside class="media">
+      <div class="thumbs">
+        <img src="assets/plugins/simple_c4_defuse/Radyolu.gif"
+             alt="Radio Ping Plugin - Radyolu"
+             data-lightbox>
+        <img src="assets/plugins/simple_c4_defuse/Radyosuz.gif"
+             alt="Radio Ping Plugin - Radyosuz"
+             data-lightbox>
+      </div>
+      <!--<div class="cap">Eklenti anı kaydı / kapak görselini buraya koy.</div>-->
+    </aside>
+
+    <section class="info">
+      <h3>Kısa Tanıtım</h3>
+      <p>
+        <!--CT oyuncu C4’e <strong>75 birim</strong> yaklaştığında ve <kbd>+use</kbd> basılı
+        tuttuğunda defuse otomatik başlar; oyuncu istediği yöne bakmaya devam edebilir.
+        Aynı anda <em>silah değiştirme, invnext/prev, lastinv, drop</em> gibi tüm komutlar
+        <code>FM_ClientCommand</code> seviyesinde süpercede edilerek engellenir.
+        <abbr title="Fakemeta">FM</abbr> <span>+</span> Engine <span>+</span> HamSandwich
+        kombinasyonu, <em>ReGameDLL gerekmez</em>; AMXX 1.9+ tüm sunucularda sorunsuz çalışır.-->
+        radio1, radio2, radio3 komutlarıyla ya da Z tuşu ile <strong>Bir yeri İŞARETLEYEBİLİRSİNİZ</strong>.
+      </p>
+      <p>
+      - Siparişlerinizi verirken <strong>"Sipariş Kodu"</strong>nu da belirtmeyi unutmayın !!!
+      </p>
+      <p>
+      - Fiyatlar <strong>.amxx fiyat / özel .amxx fiyat</strong> olarak belirtilmiştir.
+      </p>
+
+      <div class="chips">
+        <span class="chip">IP Lisanslı</span>
+        <span class="chip">Radio Ping</span>
+        <span class="chip">AMXX 1.9+</span>
+      </div>
+
+      <table class="kv" aria-label="Teknik Özellikler">
+        <tr><th>Uygunluk</th><td class="ok">AMXX 1.9+ / vanilla HLDS</td></tr>
+        <tr><th>Bağımlılıklar</th><td>amxmodx, amxmisc, fakemeta, reapi, cromchat</td></tr>
+        <!--<tr><th>Sipariş Kodu</th><td><code>FP1001</code>-->
+                               <!--<code>#define BLOCK_DROP 1</code></td></tr>-->
+        <tr><th>Sipariş Kodu</th><td class="warn">FP1003</td></tr>
+        <tr><th>Performans</th><td class="ok"><!--Her frame’de yalnızca <code>force_use</code>;-->
+                                             Oyun uyarlama Eklentisi, düşük CPU maliyeti</td></tr>
+      </table>
+
+      <div class="actions">
+        <a class="btn primary"
+           href="https://www.webailesi.com/uye-fernpasha-227">
+          Satın Al / İletişim
+        </a>
+        <a class="btn" href="assets/plugins/a/readme3.txt" target="_blank">Readme (varsa)</a>
+        <!--<a class="btn" href="#simple_c4_defuse">
+          Hiyerarşi: Plugin Introduction → Simple C4 Defuse
+        </a>-->
+      </div>
+    </section>
+  </div>
+</article>
       </div>
 
       <div id="empty" class="empty">Arama kriterlerine uyan plugin bulunamadi.</div>
