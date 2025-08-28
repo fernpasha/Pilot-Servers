@@ -163,7 +163,7 @@
       <!-- Icerik haritasi (hiyerarsi linkleri) -->
       <nav class="toc" aria-label="Icerik">
         <a href="#simple_c4_defuse">Simple C4 Defuse</a>
-        <!--<a href="#a-plugini">A Plugini</a>-->
+        <a href="#c4_location">C4 Location</a>
         <!--<a href="#b-plugini">B Plugini</a>-->
         <!--<a href="#c-plugini">C Plugini</a>-->
       </nav>
@@ -235,6 +235,86 @@
           Satın Al / İletişim
         </a>
         <a class="btn" href="assets/plugins/a/readme.txt" target="_blank">Readme (varsa)</a>
+        <!--<a class="btn" href="#simple_c4_defuse">
+          Hiyerarşi: Plugin Introduction → Simple C4 Defuse
+        </a>-->
+      </div>
+    </section>
+  </div>
+</article>
+       <!-- ===================== C4 Location ===================== -->
+<article id="c4_location"
+         class="card"
+         data-tags="location c4 spike"
+         data-price="100"
+         data-date="2025-08-28"
+         data-title="C4 Location">
+  <div class="cardhead">
+    <h2>C4 Location</h2>
+    <div style="display:flex; gap:8px; align-items:center;">
+      <span class="status"><span>Durum:</span> <b>Yayında</b></span>
+      <span class="price">100₺ / 500₺</span>
+    </div>
+  </div>
+
+  <div class="cardbody">
+    <!-- Görsel/GIF (placeholder: cover.webp) -->
+    <aside class="media">
+      <div class="thumbs">
+        <img src="assets/plugins/simple_c4_defuse/Drop1.gif"
+             alt="C4 Location - Drop"
+             data-lightbox>
+        <img src="assets/plugins/simple_c4_defuse/T1.gif"
+             alt="C4 Location - T"
+             data-lightbox>
+        <img src="assets/plugins/simple_c4_defuse/CT1.gif"
+             alt="C4 Location - CT"
+             data-lightbox>
+      </div>
+      <!--<div class="cap">Eklenti anı kaydı / kapak görselini buraya koy.</div>-->
+    </aside>
+
+    <section class="info">
+      <h3>Kısa Tanıtım</h3>
+      <p>
+        <!--CT oyuncu C4’e <strong>75 birim</strong> yaklaştığında ve <kbd>+use</kbd> basılı
+        tuttuğunda defuse otomatik başlar; oyuncu istediği yöne bakmaya devam edebilir.
+        Aynı anda <em>silah değiştirme, invnext/prev, lastinv, drop</em> gibi tüm komutlar
+        <code>FM_ClientCommand</code> seviyesinde süpercede edilerek engellenir.
+        <abbr title="Fakemeta">FM</abbr> <span>+</span> Engine <span>+</span> HamSandwich
+        kombinasyonu, <em>ReGameDLL gerekmez</em>; AMXX 1.9+ tüm sunucularda sorunsuz çalışır.-->
+        T oyuncularının C4'ü <strong>Plant ya da Drop</strong> durumlarında oyun içerisinde görmelerine olanak sağlamaktadır.
+        CT oyuncularının C4'e <strong>Plant</strong> durumlarında belirli bir mesafe yakınlaştıkları takdirde oyun içerisinde görmelerine olanak sağlamaktadır.
+      </p>
+      <p>
+      - Siparişlerinizi verirken <strong>"Sipariş Kodu"</strong>nu da belirtmeyi unutmayın !!!
+      </p>
+      <p>
+      - Fiyatlar <strong>.amxx fiyat / özel .amxx fiyat</strong> olarak belirtilmiştir.
+      </p>
+
+      <div class="chips">
+        <span class="chip">IP Lisanslı</span>
+        <span class="chip">C4/Spike Location</span>
+        <span class="chip">AMXX 1.9+</span>
+      </div>
+
+      <table class="kv" aria-label="Teknik Özellikler">
+        <tr><th>Uygunluk</th><td class="ok">AMXX 1.9+ / vanilla HLDS</td></tr>
+        <tr><th>Bağımlılıklar</th><td>amxmodx, reapi, engine, fakemeta, fakemeta_util, xs</td></tr>
+        <!--<tr><th>Sipariş Kodu</th><td><code>FP1001</code>-->
+                               <!--<code>#define BLOCK_DROP 1</code></td></tr>-->
+        <tr><th>Sipariş Kodu</th><td class="warn">FP1002</td></tr>
+        <tr><th>Performans</th><td class="ok"><!--Her frame’de yalnızca <code>force_use</code>;-->
+                                             Yeni Oyuncu Dostu, düşük CPU maliyeti</td></tr>
+      </table>
+
+      <div class="actions">
+        <a class="btn primary"
+           href="https://www.webailesi.com/uye-fernpasha-227">
+          Satın Al / İletişim
+        </a>
+        <a class="btn" href="assets/plugins/a/readme2.txt" target="_blank">Readme (varsa)</a>
         <!--<a class="btn" href="#simple_c4_defuse">
           Hiyerarşi: Plugin Introduction → Simple C4 Defuse
         </a>-->
