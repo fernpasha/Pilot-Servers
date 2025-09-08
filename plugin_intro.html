@@ -169,6 +169,79 @@
       </nav>
 
       <div id="grid" class="grid">
+        <!-- ===================== Rage Plugin ===================== -->
+<article id="rage_plugin"
+         class="card"
+         data-tags="rage health"
+         data-price="100"
+         data-date="2025-01-04"
+         data-title="Rage Plugin">
+  <div class="cardhead">
+    <h2>Rage Plugin</h2>
+    <div style="display:flex; gap:8px; align-items:center;">
+      <span class="status"><span>Durum:</span> <b>Yayında</b></span>
+      <span class="price">100₺ / 300₺</span>
+    </div>
+  </div>
+
+  <div class="cardbody">
+    <!-- Görsel/GIF (placeholder: cover.webp) -->
+    <aside class="media">
+      <div class="thumbs">
+        <img src="assets/plugins/simple_c4_defuse/fp_ofke.gif"
+             alt="Rage Plugin - Kapak"
+             data-lightbox>
+      </div>
+      <!--<div class="cap">Eklenti anı kaydı / kapak görselini buraya koy.</div>-->
+    </aside>
+
+    <section class="info">
+      <h3>Kısa Tanıtım</h3>
+      <p>
+        <!--CT oyuncu C4’e <strong>75 birim</strong> yaklaştığında ve <kbd>+use</kbd> basılı
+        tuttuğunda defuse otomatik başlar; oyuncu istediği yöne bakmaya devam edebilir.
+        Aynı anda <em>silah değiştirme, invnext/prev, lastinv, drop</em> gibi tüm komutlar
+        <code>FM_ClientCommand</code> seviyesinde süpercede edilerek engellenir.
+        <abbr title="Fakemeta">FM</abbr> <span>+</span> Engine <span>+</span> HamSandwich
+        kombinasyonu, <em>ReGameDLL gerekmez</em>; AMXX 1.9+ tüm sunucularda sorunsuz çalışır.-->
+        Öfke kullandıktan sonra canınız fullenir ama canınız 1 olana kadar her 1 saniyede 2 can kaybedersiniz.
+      </p>
+      <p>
+      - Siparişlerinizi verirken <strong>"Sipariş Kodu"</strong>nu da belirtmeyi unutmayın !!!
+      </p>
+      <p>
+      - Fiyatlar <strong>.amxx fiyat / özel .amxx fiyat</strong> olarak belirtilmiştir.
+      </p>
+
+      <div class="chips">
+        <span class="chip">IP Lisanslı</span>
+        <span class="chip">Rage Plugin</span>
+        <span class="chip">AMXX 1.9+</span>
+      </div>
+
+      <table class="kv" aria-label="Teknik Özellikler">
+        <tr><th>Uygunluk</th><td class="ok">AMXX 1.9+ / vanilla HLDS</td></tr>
+        <tr><th>Bağımlılıklar</th><td>amxmodx, reapi</td></tr>
+        <!--<tr><th>Sipariş Kodu</th><td><code>FP1001</code>-->
+                               <!--<code>#define BLOCK_DROP 1</code></td></tr>-->
+        <tr><th>Sipariş Kodu</th><td class="warn">FP1004</td></tr>
+        <tr><th>Performans</th><td class="ok"><!--Her frame’de yalnızca <code>force_use</code>;-->
+                                              REAPI, Oyun Geliştirme Eklentisi, Düşük CPU Tüketimi</td></tr>
+      </table>
+
+      <div class="actions">
+        <a class="btn primary"
+           href="https://www.webailesi.com/uye-fernpasha-227">
+          Satın Al / İletişim
+        </a>
+        <a class="btn" href="assets/plugins/a/readme.txt" target="_blank">Readme</a>
+        <!--<a class="btn" href="#simple_c4_defuse">
+          Hiyerarşi: Plugin Introduction → Simple C4 Defuse
+        </a>-->
+      </div>
+    </section>
+  </div>
+</article>
         <!-- ===================== Simple C4 Defuse ===================== -->
 <article id="simple_c4_defuse"
          class="card"
@@ -226,7 +299,7 @@
                                <!--<code>#define BLOCK_DROP 1</code></td></tr>-->
         <tr><th>Sipariş Kodu</th><td class="warn">FP1001</td></tr>
         <tr><th>Performans</th><td class="ok"><!--Her frame’de yalnızca <code>force_use</code>;-->
-                                             Oyun uyarlama Eklentisi, düşük CPU maliyeti</td></tr>
+                                             Oyundan Uyarlama Eklenti, Düşük CPU Tüketimi</td></tr>
       </table>
 
       <div class="actions">
@@ -234,7 +307,7 @@
            href="https://www.webailesi.com/uye-fernpasha-227">
           Satın Al / İletişim
         </a>
-        <a class="btn" href="assets/plugins/a/readme.txt" target="_blank">Readme (varsa)</a>
+        <a class="btn" href="assets/plugins/a/readme.txt" target="_blank">Readme</a>
         <!--<a class="btn" href="#simple_c4_defuse">
           Hiyerarşi: Plugin Introduction → Simple C4 Defuse
         </a>-->
@@ -306,7 +379,7 @@
                                <!--<code>#define BLOCK_DROP 1</code></td></tr>-->
         <tr><th>Sipariş Kodu</th><td class="warn">FP1002</td></tr>
         <tr><th>Performans</th><td class="ok"><!--Her frame’de yalnızca <code>force_use</code>;-->
-                                             Yeni Oyuncu Dostu, düşük CPU maliyeti</td></tr>
+                                             Yeni Oyuncu Dostu Eklenti, Düşük CPU Tüketimi</td></tr>
       </table>
 
       <div class="actions">
@@ -314,7 +387,7 @@
            href="https://www.webailesi.com/uye-fernpasha-227">
           Satın Al / İletişim
         </a>
-        <a class="btn" href="assets/plugins/a/readme2.txt" target="_blank">Readme (varsa)</a>
+        <a class="btn" href="assets/plugins/a/readme2.txt" target="_blank">Readme</a>
         <!--<a class="btn" href="#simple_c4_defuse">
           Hiyerarşi: Plugin Introduction → Simple C4 Defuse
         </a>-->
@@ -382,7 +455,7 @@
                                <!--<code>#define BLOCK_DROP 1</code></td></tr>-->
         <tr><th>Sipariş Kodu</th><td class="warn">FP1003</td></tr>
         <tr><th>Performans</th><td class="ok"><!--Her frame’de yalnızca <code>force_use</code>;-->
-                                             Oyun uyarlama Eklentisi, düşük CPU maliyeti</td></tr>
+                                             Oyundan Uyarlama Eklenti, Düşük CPU Tüketimi</td></tr>
       </table>
 
       <div class="actions">
@@ -390,7 +463,7 @@
            href="https://www.webailesi.com/uye-fernpasha-227">
           Satın Al / İletişim
         </a>
-        <a class="btn" href="assets/plugins/a/readme3.txt" target="_blank">Readme (varsa)</a>
+        <a class="btn" href="assets/plugins/a/readme3.txt" target="_blank">Readme</a>
         <!--<a class="btn" href="#simple_c4_defuse">
           Hiyerarşi: Plugin Introduction → Simple C4 Defuse
         </a>-->
